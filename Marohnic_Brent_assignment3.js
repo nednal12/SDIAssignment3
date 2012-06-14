@@ -35,6 +35,10 @@ var smartTires = function () {
 	};
 	
 	var getTirePressure = function (whichTire) {
+		// Perform some error handling first
+		var stayOrGo = tireNameErrorHandler(whichTire);
+			if (!stayOrGo) {return};	// End execution if an invalid entry was made for whichTire.
+		// End error handling section
 		
 		// Call the parseTireNames function to separate the tire names and put the two words into proper case.
 		var tireName = parseTireNames(whichTire);
@@ -64,8 +68,43 @@ var setTirePressure = function (whichTire, addThisMuchPSI) {
 	};	// Close setTirePressure mutator.
 */	
 
+	// Create an error handler function that can be used in both the set and get functions.
+	var tireNameErrorHandler = function (whichTire) {
+		var foundMatch = false;						// Initialize the flag to false.
+		
+		for each (var tireName in tires) {			// Cycle thru the tire names looking for a match.
+			if (whichTire === tireName) {
+				foundMatch = true;					// Set flag so that we know a match was found.
+			};
+		};
+		
+		if (!foundMatch) {
+			console.log("Please enter a valid tire name from the following list: " + tires);	
+		};
+		return foundMatch;
+	};	// Close tireNameErrorHandler
+	
+	// Create an error handler function to determine that a valid number was entered.
+	var psiErrorHandler = function (addThisMuchPSI) {
+		var badPSI = isNaN(addThisMuchPSI);			// See if the user entered a valid number
+		
+		if (badPSI) {
+			console.log("Please enter a valid number for the amount of psi to add or remove");	
+		};
+		return badPSI;
+	};	// Close psiErrorHandler
+	
 	
 	var setTirePressure = function (whichTire, addThisMuchPSI) {
+	
+		// Perform some error handling first
+		var stayOrGo = tireNameErrorHandler(whichTire);
+		if (!stayOrGo) {return};	// End execution if an invalid entry was made for whichTire.
+		var stayOrGo = psiErrorHandler(addThisMuchPSI);	// Reuse stayOrGO because we don't care if it's overwritten if it makes it
+														// this far.			
+		if (stayOrGo) {return};		// End execution if an invalid number was entered for addThisMuchPSI.
+		// End error handling section
+		
 		// Call the parseTireNames function to separate the tire names and put the two words into proper case.
 		var tireName = parseTireNames(whichTire);
 		
@@ -123,6 +162,7 @@ var setTirePressure = function (whichTire, addThisMuchPSI) {
 
 var myTires = smartTires();
 
+myTires.setTirePressure("middleTire", 5);
 
 myTires.getTirePressure("frontLeft");
 myTires.getTirePressure("frontRight");
@@ -138,3 +178,5 @@ myTires.getTirePressure("frontLeft");
 myTires.getTirePressure("frontRight");
 myTires.getTirePressure("backLeft");
 myTires.getTirePressure("backRight");
+
+myTires.getTirePressure("middleTire");
