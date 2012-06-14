@@ -7,12 +7,10 @@
 
 // Create Tire Constructor
 
-
 var smartTires = function () {
 	var tires = ["frontLeft", "frontRight", "backLeft", "backRight"],
 		tirePressure = [39, 29, 32, 35]
 	;
-	
 	// Create function to parse the tire names.
 	var parseTireNames = function (whichTire) {
 		var firstPart = "",
@@ -37,7 +35,7 @@ var smartTires = function () {
 	var getTirePressure = function (whichTire) {
 		// Perform some error handling first
 		var stayOrGo = tireNameErrorHandler(whichTire);
-			if (!stayOrGo) {return};	// End execution if an invalid entry was made for whichTire.
+		if (!stayOrGo) {return};	// End execution if an invalid entry was made for whichTire.
 		// End error handling section
 		
 		// Call the parseTireNames function to separate the tire names and put the two words into proper case.
@@ -45,28 +43,7 @@ var smartTires = function () {
 		
 		console.log("The " + tireName + " tire has ", tirePressure[tires.indexOf(whichTire)] + " psi.");
 	};	// Close getTirePressure accessor.
-	
-/*	
-var setTirePressure = function (whichTire, addThisMuchPSI) {
-		if (addThisMuchPSI === 0 || (tirePressure[tires.indexOf(whichTire)] < 32 && addThisMuchPSI <= 0)) {
-			console.log("You do not appear to know what your are doing. Check your calculations and try again later.");
-			return;									// Use return statement to end processing at this point.
-		};
-		if (tirePressure[tires.indexOf(whichTire)] > 32 && addThisMuchPSI > 0) {
-			addThisMuchPSI = tirePressure[tires.indexOf(whichTire)] - 32;				
-			console.log("This tire has already exceeded max psi. " + addThisMuchPSI + " psi will be removed at this time.");
-			addThisMuchPSI *= -1;					// Now that the console log has displayed how many psi will be removed, change the
-													// amount to a negative so that the psi will be reduced by that amount later.
-			if (tirePressure[tires.indexOf(whichTire)] + addThisMuchPSI > 32) {
-				var correctAmount = tirePressure[tire.indexOf(whichTire)] + addThisMuchPSI - 31;
-				addThisMuchPSI = correctAmount;
-				console.log("That amount will put the tire over the max PSI. I'll adjust the amount to " + correctAmount + " psi.");
-			};
-		};
-		tirePressure[tires.indexOf(whichTire)] += addThisMuchPSI;
-	
-	};	// Close setTirePressure mutator.
-*/	
+
 
 	// Create an error handler function that can be used in both the set and get functions.
 	var tireNameErrorHandler = function (whichTire) {
@@ -96,7 +73,6 @@ var setTirePressure = function (whichTire, addThisMuchPSI) {
 	
 	
 	var setTirePressure = function (whichTire, addThisMuchPSI) {
-	
 		// Perform some error handling first
 		var stayOrGo = tireNameErrorHandler(whichTire);
 		if (!stayOrGo) {return};	// End execution if an invalid entry was made for whichTire.
