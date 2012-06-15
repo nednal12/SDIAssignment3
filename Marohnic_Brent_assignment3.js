@@ -5,6 +5,21 @@
 
 // JavaScript Document
 
+// Pull in JSON data from Marohnic_Brent_JSON3.js
+
+
+var retrieveMyCars = function (myRetrievedCars) {
+	var myCarsArray = [];
+	for (var i = 0, j = myRetrievedCars.cars.length; i < j; i++) {
+		myCarsArray.push(myRetrievedCars.cars[i]);
+		console.log("vin: " + myCarsArray[i].vin + ", make: " + myCarsArray[i].make + ", model: " + myCarsArray[i].model +
+			", year: " + myCarsArray[i].year + ", tirePSI: " + myCarsArray[i].tirePSI + ", oil: " + myCarsArray[i].oil);
+	};
+};
+
+retrieveMyCars(myCars);
+
+/*
 // Create Tire Constructor
 
 var smartTires = function () {
@@ -156,3 +171,5 @@ myTires.getTirePressure("backLeft");
 myTires.getTirePressure("backRight");
 
 myTires.getTirePressure("middleTire");
+
+*/

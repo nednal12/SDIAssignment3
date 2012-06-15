@@ -12,24 +12,24 @@ var myCars = {
 		"make": "Hyundai",
 		"model": "Santa Fe",
 		"tirePSI": 32,
-		"year": 2003,
+		"year": 2043,
 		"oil": "10w30"
-		};
+		},
 		{
 		"vin": "DEF456",
 		"make": "Hyundai",
 		"model": "Sonata",
 		"tirePSI": 30,
-		"year": 2007,
+		"year": 2047,
 		"oil": "10w30"
-		};
+		},
 		{
 		"vin": "GHI789",
 		"make": "Hyundai",
 		"model": "Genesis",
 		"tirePSI": 31,
-		"year": 2012,
+		"year": 2050,
 		"oil": "10w30"
-		};
+		}
 	]
 };
