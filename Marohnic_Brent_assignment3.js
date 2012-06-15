@@ -19,7 +19,7 @@ var retrieveMyCars = function (myRetrievedCars) {
 
 retrieveMyCars(myCars);
 
-/*
+
 // Create Tire Constructor
 
 var smartTires = function () {
@@ -172,4 +172,3 @@ myTires.getTirePressure("backRight");
 
 myTires.getTirePressure("middleTire");
 
-*/
